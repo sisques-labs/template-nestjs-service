@@ -43,6 +43,7 @@
     "graphql-query-complexity": "^1.1.0",
     "kafkajs": "^2.2.4",
     "mongodb": "^6.21.0",
+    "pg": "^8.13.0",
     "nest-winston": "^1.10.2",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",

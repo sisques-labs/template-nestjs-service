@@ -6,6 +6,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
+import { MongoModule, TypeOrmModule } from '@sisques-labs/nestjs-kit';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -22,6 +23,8 @@ const SUPPORT = [SupportModule];
       isGlobal: true,
       envFilePath: ['.env.local', '.env'],
     }),
+    TypeOrmModule, // Postgres write side — remove if not using TypeORM
+    MongoModule, // MongoDB read side — remove if not using MongoDB
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
